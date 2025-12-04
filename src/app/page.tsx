@@ -412,11 +412,11 @@ function HomeClient() {
                         ];
                         const currentWeekday = weekdays[today.getDay()];
 
-                        // 找到当前星期对应的番剧数据
+                        // 找到当前星期对应的番剧数据，并过滤掉没有图片的
                         const todayAnimes =
                           bangumiCalendarData.find(
                             (item) => item.weekday.en === currentWeekday
-                          )?.items || [];
+                          )?.items.filter((anime) => anime.images) || [];
 
                         return todayAnimes.map((anime, index) => (
                           <div
